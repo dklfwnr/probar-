@@ -1,0 +1,65 @@
+/* paleta gris claro + pasteles delicados */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 2rem;
+  font-family: "Nunito", "Helvetica Neue", Arial, sans-serif;
+  background: #fafafa;
+  color: #333;
+}
+
+h1 { font-size: 1.8rem; margin: 0 0 .5rem; color: #ad1457; }
+
+#mesh > section + section {         /* separador de semestres */
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 2px dashed #e0e0e0;
+}
+
+.semester {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: .75rem;
+}
+
+.semester h2 {
+  grid-column: 1 / -1;
+  margin: 0 0 .5rem;
+  font-size: 1.25rem;
+  color: #6a1b9a;
+  font-weight: 600;
+}
+
+/* tarjeta‑botón de cada ramo */
+.course {
+  position: relative;
+  padding: 1rem;
+  min-height: 80px;
+  font-size: .9rem;
+  background: #f7f7f7;
+  border: 3px solid var(--border-color, #bdbdbd);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: transform .15s, box-shadow .15s;
+}
+
+.course:hover:not(.disabled) {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0,0,0,.12);
+}
+
+.course.disabled { opacity: .45; cursor: default; box-shadow: none; }
+.course.completed { background: #fdeef4; }   /* rosa pastel al aprobar */
+
+.badge {                   /* ✔️ que aparece al aprobar */
+  position: absolute;
+  top: 6px; right: 8px;
+  padding: 2px 6px;
+  font-size: .75rem;
+  border-radius: 8px;
+  background: var(--border-color, #ad1457);
+  color: #fff;
+}
